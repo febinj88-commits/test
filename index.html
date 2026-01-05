@@ -3,172 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Developer Portfolio</title>
+    <title>Febin Jose | Unity Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-color: #00bcd4; /* Unity-ish Blue/Cyan */
-            --text-main: #ffffff;
-            --text-dim: #b0b0b0;
+            --bg: #000000;
+            --surface: #111111;
+            --border: #333333;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff; /* All accents are white for B&W theme */
         }
 
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(180deg, #000 0%, var(--bg-color) 100%);
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 0 2rem;
+        .logo { font-weight: 900; letter-spacing: -1px; font-size: 1.2rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 120px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 { 
+            font-size: 5rem; 
+            margin: 0; 
+            font-weight: 900; 
+            letter-spacing: -3px;
+            line-height: 0.9;
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--text-secondary); 
+            max-width: 500px; 
+            margin-top: 20px; 
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            border: 1px solid #333;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: #333; /* Placeholder */
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #333;
-            color: var(--accent-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
+        /* --- SECTION TITLES --- */
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: block;
         }
 
-        .skills-section {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 4rem 0;
+        /* --- PROJECT GRID --- */
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        h1, h2 { color: var(--accent-color); }
-        a { color: var(--accent-color); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .project-info h3 { font-size: 2rem; margin: 0 0 1rem 0; }
+        .project-info p { color: var(--text-secondary); line-height: 1.6; }
+        
+        .project-tags { margin-top: 1.5rem; }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            border: 1px solid var(--text-primary);
+            padding: 3px 8px;
+            margin-right: 5px;
+        }
+
+        .project-visual {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--border);
+            font-weight: bold;
+        }
+
+        /* --- SKILLS --- */
+        .skills-section { padding: 80px 0; }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .skill-group h4 { 
+            border-bottom: 1px solid var(--text-primary); 
+            padding-bottom: 10px; 
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .skill-group ul { list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.9rem; }
+        .skill-group li { margin-bottom: 5px; }
+
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .project-row { grid-template-columns: 1fr; gap: 2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>[YOUR NAME]</h1>
-        <p>Unity Game Developer | C# Programmer | Technical Artist</p>
-        <div style="margin-top: 1rem;">
-            <a href="#">GitHub</a> • <a href="#">LinkedIn</a> • <a href="#">Itch.io</a>
-        </div>
-    </header>
-
     <div class="container">
-        
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                
-                <div class="project-card">
-                    <img src="project1-thumbnail.jpg" alt="Game Screenshot" class="project-image">
-                    <div class="project-content">
-                        <span class="tag">C# / URP</span>
-                        <h3>Project Shadow Runner</h3>
-                        <p>A fast-paced 3D platformer featuring a custom parkour controller and GPU-accelerated VFX.</p>
-                        <ul>
-                            <li>Implemented Object Pooling for projectiles.</li>
-                            <li>Designed custom Shaders via Shader Graph.</li>
-                        </ul>
-                        <a href="#">View Source Code →</a>
+        <nav>
+            <div class="logo">FEBIN JOSE</div>
+            <div class="nav-links">
+                <a href="#work">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="mailto:febin@email.com">Contact</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <h1>UNITY<br>DEVELOPER.</h1>
+            <p>Recent Graduate focusing on C# systems, 3D physics, and game optimization.</p>
+        </header>
+
+        <section id="work">
+            <div class="project-row">
+                <div class="project-info">
+                    <span class="section-label">01 / Third-Person System</span>
+                    <h3>Action Controller</h3>
+                    <p>A modular 3D character system featuring custom physics, Cinemachine camera states, and NavMesh AI integration.</p>
+                    <div class="project-tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">3D</span>
+                        <span class="tag">PHYSICS</span>
                     </div>
                 </div>
+                <div class="project-visual">IMAGE / VIDEO PREVIEW</div>
+            </div>
 
-                <div class="project-card">
-                    <img src="project2-thumbnail.jpg" alt="Game Screenshot" class="project-image">
-                    <div class="project-content">
-                        <span class="tag">Mobile / Optimization</span>
-                        <h3>Neon Drift</h3>
-                        <p>Mobile racing game optimized for mid-range Android/iOS devices.</p>
-                        <ul>
-                            <li>Reduced draw calls by 50% using Static Batching.</li>
-                            <li>Integrated Unity Ads and IAP.</li>
-                        </ul>
-                        <a href="#">Play on Itch.io →</a>
+            <div class="project-row">
+                <div class="project-info">
+                    <span class="section-label">02 / Mobile Game</span>
+                    <h3>2D Endless Runner</h3>
+                    <p>High-performance mobile project utilizing Object Pooling and Event-driven UI architecture.</p>
+                    <div class="project-tags">
+                        <span class="tag">MOBILE</span>
+                        <span class="tag">2D</span>
+                        <span class="tag">OPTIMIZATION</span>
                     </div>
                 </div>
-
+                <div class="project-visual">IMAGE / VIDEO PREVIEW</div>
             </div>
         </section>
 
-        <section class="skills-section">
-            <h2>Technical Skillset</h2>
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div>
-                    <h4>Engine & Tools</h4>
+        <section id="skills" class="skills-section">
+            <span class="section-label">Technical Stack</span>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>CORE</h4>
                     <ul>
-                        <li>Unity 2022.3 LTS</li>
-                        <li>Addressables & AssetBundles</li>
-                        <li>Git / PlasticSCM</li>
+                        <li>Unity Engine (2D/3D)</li>
+                        <li>C# Programming</li>
+                        <li>OOP & Design Patterns</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Graphics</h4>
+                <div class="skill-group">
+                    <h4>SYSTEMS</h4>
                     <ul>
-                        <li>Universal Render Pipeline (URP)</li>
-                        <li>Post-Processing Stack</li>
-                        <li>Blender (Basic Modeling)</li>
+                        <li>NavMesh AI</li>
+                        <li>Object Pooling</li>
+                        <li>Input System (New)</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Programming</h4>
+                <div class="skill-group">
+                    <h4>TOOLS</h4>
                     <ul>
-                        <li>Design Patterns (Singleton, State)</li>
-                        <li>REST API Integration</li>
-                        <li>LINQ & Data Structures</li>
+                        <li>Git / GitHub</li>
+                        <li>Shader Graph</li>
+                        <li>Blender (Basics)</li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <footer>
+            &copy; 2026 FEBIN JOSE. ALL RIGHTS RESERVED.
+        </footer>
     </div>
-
-    <footer style="text-align: center; padding: 2rem; color: var(--text-dim);">
-        <p>&copy; 2024 [Your Name]. Built with HTML & CSS.</p>
-    </footer>
 
 </body>
 </html>
