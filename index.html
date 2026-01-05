@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Developer Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #00bcd4; /* Unity-ish Blue/Cyan */
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, var(--bg-color) 100%);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #333; /* Placeholder */
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #333;
+            color: var(--accent-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 4rem 0;
+        }
+
+        h1, h2 { color: var(--accent-color); }
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[YOUR NAME]</h1>
+        <p>Unity Game Developer | C# Programmer | Technical Artist</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">GitHub</a> • <a href="#">LinkedIn</a> • <a href="#">Itch.io</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <img src="project1-thumbnail.jpg" alt="Game Screenshot" class="project-image">
+                    <div class="project-content">
+                        <span class="tag">C# / URP</span>
+                        <h3>Project Shadow Runner</h3>
+                        <p>A fast-paced 3D platformer featuring a custom parkour controller and GPU-accelerated VFX.</p>
+                        <ul>
+                            <li>Implemented Object Pooling for projectiles.</li>
+                            <li>Designed custom Shaders via Shader Graph.</li>
+                        </ul>
+                        <a href="#">View Source Code →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project2-thumbnail.jpg" alt="Game Screenshot" class="project-image">
+                    <div class="project-content">
+                        <span class="tag">Mobile / Optimization</span>
+                        <h3>Neon Drift</h3>
+                        <p>Mobile racing game optimized for mid-range Android/iOS devices.</p>
+                        <ul>
+                            <li>Reduced draw calls by 50% using Static Batching.</li>
+                            <li>Integrated Unity Ads and IAP.</li>
+                        </ul>
+                        <a href="#">Play on Itch.io →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Technical Skillset</h2>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <div>
+                    <h4>Engine & Tools</h4>
+                    <ul>
+                        <li>Unity 2022.3 LTS</li>
+                        <li>Addressables & AssetBundles</li>
+                        <li>Git / PlasticSCM</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Graphics</h4>
+                    <ul>
+                        <li>Universal Render Pipeline (URP)</li>
+                        <li>Post-Processing Stack</li>
+                        <li>Blender (Basic Modeling)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Programming</h4>
+                    <ul>
+                        <li>Design Patterns (Singleton, State)</li>
+                        <li>REST API Integration</li>
+                        <li>LINQ & Data Structures</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-dim);">
+        <p>&copy; 2024 [Your Name]. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
